@@ -1,0 +1,56 @@
+@startuml
+left to right direction
+skinparam componentStyle uml2
+skinparam shadowing false
+skinparam linetype ortho
+
+actor "Third-Party Source" as Source
+
+component "Webhook Ingestion" as Ingestion
+component "Validation & Event Recorder" as Validator
+component "Delivery / Target Router" as Delivery
+component "Retry Manager" as Retry
+component "Dead-Letter Queue & Event Store" as Store
+component "Logging & Monitoring" as Logs
+component "Target Internal Service" as Target
+
+interface "Webhook Input" as I1
+interface "Validated Event" as I2
+interface "Delivery API" as I3
+interface "Retry State" as I4
+interface "Event Storage" as I5
+interface "Log / Status" as I6
+
+Source - I1
+I1 - Ingestion
+Ingestion ..> Validator : <<use>>
+Validator - I2
+I2 - Delivery
+Delivery ..> Target : <<use>>
+Delivery ..> Retry : failed delivery
+Retry - I4
+I4 - Store
+Retry ..> Delivery : exponential backoff retry
+Delivery ..> Logs : attempts / responses
+Validator ..> Logs : validation status
+Ingestion ..> Logs : accepted payload
+Store - I5
+Store ..> Logs : DLQ / recovery status
+
+note right of Ingestion
+Buffers inbound webhooks
+for high-throughput ingestion.
+end note
+
+note right of Retry
+Retries failed deliveries
+using exponential backoff.
+end note
+
+note right of Store
+Preserves accepted events
+and retry state; stores events
+that exceed retry limit.
+end note
+
+@enduml

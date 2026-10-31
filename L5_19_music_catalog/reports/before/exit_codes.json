@@ -1,0 +1,5 @@
+{
+  "pylint": 28,
+  "bandit": 1,
+  "flake8": 1
+}

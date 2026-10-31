@@ -1,52 +1,49 @@
-# Lab 5: Static Code Analysis — Music Catalog and Playlist Manager
+# Lab 5: Static Code Analysis - Music Catalog
 
-**Your file:** `music_catalog.py`
+Completed from https://github.com/SETAPESU26/L5_19_music_catalog
+(source main tree: 152a52e48cbbfd00fe50f51180cbbf3dec28b454).
 
-Follow the lab handout for the full instructions.
+## Contents
 
-## About the program
+- `music_catalog.py`: cleaned catalog and playlist manager.
+- `issues.md`: findings, original line references and fixes.
+- `reflection.md`: four relevant draft answers; the handout omits the actual questions.
+- `reports/before/`: original Pylint, Bandit and Flake8 output.
+- `reports/after/`: final output, exit codes, demo and regression test results.
+- Root `*_report.txt`: copies of final reports for easy submission.
+- `original/music_catalog.py`: uncorrected baseline, retained only as evidence.
+- `test_music_catalog.py`: eight regression tests.
+- `requirements.txt`: exact versions used to generate the reports.
 
-A catalog for a music streaming service. It stores songs and play counts, rates popularity, picks a random song and saves and loads playlists.
+## Run on Windows CMD
 
-The code works, but only just. It has quality, style and security problems of the kind Pylint, Flake8 and Bandit are built to find.
+Python 3.12 was used for verification. No extra dependencies are needed for the demo.
 
-## What to do
+```bat
+python music_catalog.py
+python -m unittest -v
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install -r requirements.txt
+pylint music_catalog.py > pylint_report.txt
+bandit -r music_catalog.py > bandit_report.txt
+flake8 music_catalog.py > flake8_report.txt
+```
 
-1. **Run it first** and read the output carefully:
-   ```bash
-   python music_catalog.py
-   ```
-   It runs a short demonstration and may create a small output file in the current folder, so run it from a folder you don't mind adding files to.
+Expected demo: `multi-song playlist`, then `popular niche 1 290` or
+`popular niche 2 290`. The song ID is random. Final Pylint: 10.00/10;
+Bandit: no findings; Flake8: empty output and exit code 0.
 
-2. **Install the tools:**
-   ```bash
-   pip install pylint bandit flake8
-   ```
+Analyze only the cleaned root script for final submission. Recursive analysis
+of the entire folder includes the intentionally unsafe original baseline.
+Bandit writes progress messages to stderr; these were saved separately.
 
-3. **Run the analysis** and save the reports:
-   ```bash
-   pylint music_catalog.py > pylint_report.txt
-   bandit -r music_catalog.py > bandit_report.txt
-   flake8 music_catalog.py > flake8_report.txt
-   ```
+Functions now use snake_case. Serialized playlists are JSON bytes, not pickle.
+The catalog is intentionally in-memory, matching the starter: songs disappear
+when the process ends. No student identity is embedded.
 
-4. **Document the issues** in `issues.md` using this table (at least 4 rows, high and medium severity first):
+## Commit requirement
 
-   | Issue | Type | Line(s) | Description | Fix Approach |
-   |-------|------|---------|-------------|--------------|
-   | ... | ... | ... | ... | ... |
-
-5. **Fix the code.** Fix at least 4 of the issues you documented, then rerun all three tools to confirm they are gone. Repeat until you are satisfied. The program should still do its job when you are done.
-
-6. **Reflect.** Answer the four reflection questions from the handout in `reflection.md`.
-
-## Deliverables
-
-1. `music_catalog.py`: your cleaned version, with at least 4 issues fixed.
-2. `issues.md`: the completed issue table.
-3. `reflection.md`: your answers to the reflection questions.
-
-**Target:** aim for a Pylint score above 9.5 on your final file. A perfect 10.00/10 is very good.
-
-Be ready to explain the bugs you found and how you fixed them. You may be called on to present.
-
+The repository history contains a baseline commit followed by three tool-specific
+fix commits: Bandit/security, Pylint/correctness, and Flake8/style with
+documentation and verification. All lab files are under `L5_19_music_catalog/`.

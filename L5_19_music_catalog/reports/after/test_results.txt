@@ -1,0 +1,13 @@
+test_empty_catalog (test_music_catalog.CatalogTests.test_empty_catalog) ... ok
+test_explicit_playlist_is_shared (test_music_catalog.CatalogTests.test_explicit_playlist_is_shared) ... ok
+test_independent_default_playlists (test_music_catalog.CatalogTests.test_independent_default_playlists) ... ok
+test_json_round_trip (test_music_catalog.CatalogTests.test_json_round_trip) ... ok
+test_popularity_boundaries (test_music_catalog.CatalogTests.test_popularity_boundaries) ... ok
+test_random_pick_is_existing_id (test_music_catalog.CatalogTests.test_random_pick_is_existing_id) ... ok
+test_reject_invalid_playlists (test_music_catalog.CatalogTests.test_reject_invalid_playlists) ... ok
+test_sql_input_is_data (test_music_catalog.CatalogTests.test_sql_input_is_data) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

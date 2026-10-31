@@ -5,14 +5,20 @@ import secrets
 import sqlite3
 
 CONNECTION = sqlite3.connect(":memory:")
-CONNECTION.execute("CREATE TABLE songs (id INTEGER PRIMARY KEY, title TEXT, artist TEXT, plays INTEGER)")
+CONNECTION.execute(
+    "CREATE TABLE songs (id INTEGER PRIMARY KEY, title TEXT, "
+    "artist TEXT, plays INTEGER)"
+)
 
 
 def add_song(title, artist, plays=0, playlist=None):
     """Insert a song and append its title to the selected playlist."""
     if playlist is None:
         playlist = []
-    CONNECTION.execute("INSERT INTO songs (title, artist, plays) VALUES (?, ?, ?)", (title, artist, plays))
+    CONNECTION.execute(
+        "INSERT INTO songs (title, artist, plays) VALUES (?, ?, ?)",
+        (title, artist, plays),
+    )
     playlist.append(title)
     return playlist
 
@@ -25,7 +31,9 @@ def shuffle_pick():
 
 def popularity(title):
     """Classify a song by its play count."""
-    row = CONNECTION.execute("SELECT plays FROM songs WHERE title = ?", (title,)).fetchone()
+    row = CONNECTION.execute(
+        "SELECT plays FROM songs WHERE title = ?", (title,)
+    ).fetchone()
     if row is None:
         return "unknown"
     return "popular" if row[0] > 100 else "niche"
@@ -59,8 +67,12 @@ def main():
     add_song("Monsoon", "Kavya", 40, playlist)
     blob = save_playlist(playlist)
     restored_playlist = load_playlist(blob)
-    if len(restored_playlist) > 1: print("multi-song playlist")
-    print(popularity("Aurora"), popularity("Monsoon"), shuffle_pick(), total_plays())
+    if len(restored_playlist) > 1:
+        print("multi-song playlist")
+    print(
+        popularity("Aurora"), popularity("Monsoon"),
+        shuffle_pick(), total_plays(),
+    )
 
 
 if __name__ == "__main__":
@@ -68,4 +80,3 @@ if __name__ == "__main__":
         main()
     finally:
         CONNECTION.close()
-

@@ -1,0 +1,92 @@
+{
+  "source_repository": "https://github.com/SETAPESU26/L6_L7_19_parking_fee",
+  "source_commit": "af37455c32c127506e00acc63ccd5e3309c7ce0b",
+  "source_git_blob_sha": "d9f49287f5bc2dcc5c93b6f7c0cb44a73cf155f5",
+  "starter_git_blob_sha": "44a5f38e03294de236cb632a79b6f7c2dc3c68cb",
+  "srn": "PES1UG24AM201",
+  "source_unchanged": true,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "initial_statement": {
+    "test_file": "test_parking_fee.py",
+    "statement_percent": 44.11764705882353,
+    "branch_percent": null,
+    "summary": {
+      "covered_lines": 15,
+      "num_statements": 34,
+      "percent_covered": 44.11764705882353,
+      "percent_covered_display": "44",
+      "missing_lines": 19,
+      "excluded_lines": 0,
+      "percent_statements_covered": 44.11764705882353,
+      "percent_statements_covered_display": "44"
+    }
+  },
+  "initial_branch": {
+    "test_file": "test_parking_fee.py",
+    "statement_percent": 44.11764705882353,
+    "branch_percent": 33.333333333333336,
+    "summary": {
+      "covered_lines": 15,
+      "num_statements": 34,
+      "percent_covered": 39.6551724137931,
+      "percent_covered_display": "40",
+      "missing_lines": 19,
+      "excluded_lines": 0,
+      "percent_statements_covered": 44.11764705882353,
+      "percent_statements_covered_display": "44",
+      "num_branches": 24,
+      "num_partial_branches": 8,
+      "covered_branches": 8,
+      "missing_branches": 16,
+      "percent_branches_covered": 33.333333333333336,
+      "percent_branches_covered_display": "33"
+    }
+  },
+  "code_coverage": {
+    "test_file": "CodeCoverageTest_PES1UG24AM201_parking_fee.py",
+    "statement_percent": 100.0,
+    "branch_percent": null,
+    "summary": {
+      "covered_lines": 34,
+      "num_statements": 34,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": 0,
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100"
+    }
+  },
+  "branch_coverage": {
+    "test_file": "BranchCoverageTest_PES1UG24AM201_parking_fee.py",
+    "statement_percent": 100.0,
+    "branch_percent": 100.0,
+    "summary": {
+      "covered_lines": 34,
+      "num_statements": 34,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": 0,
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100",
+      "num_branches": 24,
+      "num_partial_branches": 0,
+      "covered_branches": 24,
+      "missing_branches": 0,
+      "percent_branches_covered": 100.0,
+      "percent_branches_covered_display": "100"
+    }
+  },
+  "pytest_version": "9.2.0",
+  "coverage_version": "7.17.0",
+  "verification_date_Asia_Kolkata": "2026-11-02",
+  "screenshot_status": "Local capture required; explicit Markdown placeholders supplied.",
+  "test_files_sha256": {
+    "CodeCoverageTest_PES1UG24AM201_parking_fee.py": "116e87b6030baecd7610f4bc529dc031153d836a33aee34a3e1bcf2019bca99e",
+    "BranchCoverageTest_PES1UG24AM201_parking_fee.py": "62e5c3172f2467f6205b4c48098572260e05287a52329526b1902775211dc5ee"
+  },
+  "remote_mutations_during_verification": "None. No commits or pushes performed.",
+  "delivery_repository": "https://github.com/prathyushg129/PES1UG24AM201",
+  "delivery_path": "L6_L7_19_parking_fee"
+}

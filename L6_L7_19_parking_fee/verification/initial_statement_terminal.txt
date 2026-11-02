@@ -1,0 +1,27 @@
+SRN: PES1UG24AM201
+Working directory: Lab 6
+Source: SETAPESU26/L6_L7_19_parking_fee
+Source commit: af37455c32c127506e00acc63ccd5e3309c7ce0b
+Python 3.12.14
+
+PS> python -m coverage erase --data-file=.coverage.initial_statement
+
+[exit code 0]
+
+PS> python -m coverage run --data-file=.coverage.initial_statement --source=parking_fee -m pytest -q test_parking_fee.py
+..                                                                                                     [100%]
+2 passed in 0.03s
+[exit code 0]
+
+PS> python -m coverage report --data-file=.coverage.initial_statement -m
+Name             Stmts   Miss  Cover   Missing
+----------------------------------------------
+parking_fee.py      34     19    44%   6, 8, 12-15, 17, 19, 25, 27, 29, 34-42
+----------------------------------------------
+TOTAL               34     19    44%
+[exit code 0]
+
+PS> python -m coverage json --data-file=.coverage.initial_statement -o C:\Users\prath\Documents\Codex\2026-11-02\referenced-chatgpt-conversation-this-is-an\outputs\Lab6_PES1UG24AM201\verification\initial_statement.json
+Wrote JSON report to C:\Users\prath\Documents\Codex\2026-11-02\referenced-chatgpt-conversation-this-is-an\outputs\Lab6_PES1UG24AM201\verification\initial_statement.json
+[exit code 0]
+
